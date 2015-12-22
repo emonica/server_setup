@@ -61,16 +61,16 @@ is [research that proves password expiration is not neccessarily safer][1]
 1. Set time zone to UTC (the default)
 
 1. Created ubuntu_autoupdate weekly cron job, that does the following:
-```
+   ```
 apt-get update 
 apt-get upgrade -y 
 apt-get autoclean
-```
+   ```
 
 1. Restrict access to .git files from web app, by having file /var/www/.htaccess:
-```
+   ```
 RedirectMatch 404 /\.git
-```
+   ```
 
 1. Created 2 users for psql: 
    - admin (owner of the toystoresdb database)
@@ -92,9 +92,9 @@ in order to allow OAuth2 authentication to the web app through google and facebo
 
 ## Resources
 [1]: http://www.cs.unc.edu/~fabian/papers/PasswordExpire.pdf
-[2]: https://www.digitalocean.com/community/tutorials/how-to-deploy-a-flask-application-on-an-ubuntu-vps
-[3]: https://www.digitalocean.com/community/tutorials/how-to-install-and-use-postgresql-on-ubuntu-14-04
-[4]: https://www.digitalocean.com/community/tutorials/how-to-use-roles-and-manage-grant-permissions-in-postgresql-on-a-vps--2
-[5]: https://www.digitalocean.com/community/tutorials/how-to-secure-postgresql-on-an-ubuntu-vps
-[6]: http://dba.stackexchange.com/questions/33943/granting-access-to-all-tables-for-a-user
+- https://www.digitalocean.com/community/tutorials/how-to-deploy-a-flask-application-on-an-ubuntu-vps
+- https://www.digitalocean.com/community/tutorials/how-to-install-and-use-postgresql-on-ubuntu-14-04
+- https://www.digitalocean.com/community/tutorials/how-to-use-roles-and-manage-grant-permissions-in-postgresql-on-a-vps--2
+- https://www.digitalocean.com/community/tutorials/how-to-secure-postgresql-on-an-ubuntu-vps
+- http://dba.stackexchange.com/questions/33943/granting-access-to-all-tables-for-a-user
 
