@@ -32,6 +32,9 @@ sudo pip install virtualenv
 sudo apt-get install postgresql postgresql-contrib
 sudo apt-get build-dep python-psycopg2
 sudo apt-get install git
+sudo apt-get install fail2ban
+sudo pip install glances
+sudo apt-get install munin
 ```
 
 Then, inside the newly created app specific virtual environment, 
@@ -67,6 +70,21 @@ apt-get upgrade -y
 apt-get autoclean
    ```
 
+1. Configured the fail2ban service to monitor the Apache logs for:
+   - more than 3 repeated failed authorization requests in 10 minutes
+   - ban clients that are searching for scripts to execute and exploit
+   - block clients that are trying to trigger a buffer overflow
+   - stop known malicious bots
+   - stop access to users' home directories
+
+1. Installed _glances_ to monitor the activity on the server. Once
+logged in, use "glances" to get a short report
+
+1. Installed and configured _munin_ to monitor the activity on the server. 
+Access
+http://ec2-52-35-180-109.us-west-2.compute.amazonaws.com/munin
+in order to see a series of usage graphs.
+
 1. Restrict access to .git files from web app, by having file /var/www/.htaccess:
    ```
 RedirectMatch 404 /\.git
@@ -97,4 +115,6 @@ in order to allow OAuth2 authentication to the web app through google and facebo
 - https://www.digitalocean.com/community/tutorials/how-to-use-roles-and-manage-grant-permissions-in-postgresql-on-a-vps--2
 - https://www.digitalocean.com/community/tutorials/how-to-secure-postgresql-on-an-ubuntu-vps
 - http://dba.stackexchange.com/questions/33943/granting-access-to-all-tables-for-a-user
-
+- https://www.digitalocean.com/community/tutorials/how-to-protect-an-apache-server-with-fail2ban-on-ubuntu-14-04
+- https://pypi.python.org/pypi/Glances/
+- https://www.digitalocean.com/community/tutorials/how-to-install-munin-on-an-ubuntu-vps
